@@ -1,0 +1,113 @@
+
+// Colors
+
+/*
+    Название переменной конкретного цвета генерируется через сервис: http://chir.ag/projects/name-that-color/.
+    Значение цвета всегда указывается в HEX-формате в нижнем регистре (кроме исключительных случаев).
+*/
+
+// basic
+$white: #fff;
+$black: #000;
+
+// Colors dinamic
+//$color-text: $black;
+
+
+// Gradients
+
+// Gradients dinamic
+
+
+// Fonts
+$font-path: "/fonts/";
+$font-family-default: sans-serif;
+$font-family-custom: "Inter";
+
+//$font-size-base: 16px;
+
+//$line-height: 20px;
+
+// Fonts dinamic
+$font-family: $font-family-custom, $font-family-default;
+
+
+// Breakpoints
+$tablet: 768;
+$laptop: 1024;
+$desktop: 1200;
+$desktopLarge: 1280;
+$screen-width: (
+  tablet: $tablet,
+  laptop: $laptop,
+  desktop: $desktop,
+  desktoplarge: $desktopLarge,
+);
+$screen: (tablet, laptop, desktop, desktoplarge);
+$screen-tablet: "(min-width: #{$tablet}px)";
+$screen-laptop: "(min-width: #{$laptop}px)";
+$screen-desktop: "(min-width: #{$desktop}px)";
+$screen-desktop-large: "(min-width: #{$desktopLarge}px)";
+$screen-big-height: "(min-height: 875px)";
+$screen-desktop-max: "(max-width: 1199px)";
+
+
+// Gaps
+//$gap: 32px;
+
+// Gaps dinamic
+
+
+// Sizes
+
+// Sizes dinamic
+
+
+// Z-indexes
+
+// Z-indexes dinamic
+
+
+// Radius
+
+// Radius dinamic
+
+
+// Shadows
+
+// Shadows dinamic
+
+
+// Transitions and Animations
+//$transition-duration: 300ms;
+//$transition-duration-fast: 100ms;
+//$transition-function: ease-in-out;
+
+// Transitions and Animations dinamic
+
+$rulesDisplay: (
+  hidden: (
+    display: none !important,
+  ),
+  block: (
+    display: block !important,
+  ),
+  inline: (
+    display: inline !important,
+  ),
+  inline-block: (
+    display: inline-block !important,
+  ),
+  flex: (
+    display: flex !important,
+  ),
+  inline-flex: (
+    display: inline-flex !important,
+  ),
+  grid: (
+    display: grid !important,
+  ),
+  inline-grid: (
+    display: inline-grid !important,
+  )
+);
