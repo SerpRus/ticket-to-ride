@@ -12,10 +12,11 @@ html {
   font-family: $font-family;
   font-size: 100%;
   position: relative;
-  z-index: $z-index-html;
 }
 
 body {
+  margin: 0;
+
   text-rendering: optimizelegibility;
 }
 

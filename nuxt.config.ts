@@ -17,6 +17,9 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  css: [
+    '/src/scss/index.scss',
+  ],
   vite: {
     css: {
       preprocessorOptions: {
@@ -26,6 +29,10 @@ export default defineNuxtConfig({
               @use "sass:math";
               @use "sass:list";
               @import "src/scss/abstracts/_mixin.scss";
+              @import "src/scss/abstracts/_function.scss";
+              @import "src/scss/abstracts/_variables.scss";
+              @import "src/scss/base/_fonts.scss";
+              @import "src/scss/base/_generic.scss";
             `,
         },
       },
