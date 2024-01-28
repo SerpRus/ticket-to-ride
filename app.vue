@@ -1,11 +1,14 @@
+<script setup lang="ts">
+import Game from './components/game/index.vue';
+</script>
+
 <template>
   <div>
-    Start
+    <client-only>
+      <game />
+    </client-only>
   </div>
 </template>
-
-<script setup lang="ts">
-</script>
 
 <style lang="scss" scoped>
 * {
