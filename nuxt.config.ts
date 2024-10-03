@@ -20,7 +20,8 @@ export default defineNuxtConfig({
   css: [
     '/src/scss/index.scss',
   ],
-  vite: {
+  ssr  : true,
+  vite : {
     css: {
       preprocessorOptions: {
         scss: {

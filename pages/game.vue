@@ -2,16 +2,11 @@
 import { onMounted, onBeforeUnmount } from 'vue';
 
 import boardImage from '@/src/images/board.jpg';
-
-const BOARD_SIZE = {
-  width  : 1200,
-  height : 800,
-};
-const BOARD_IMAGE_SIZE = {
-  width  : 7016,
-  height : 4960,
-};
-const SCALE_STEP = 0.05;
+import {
+  BOARD_SIZE,
+  BOARD_IMAGE_SIZE,
+  SCALE_STEP,
+} from '@/src/constants/ticket-to-ride';
 
 let game = null;
 
@@ -27,6 +22,8 @@ onMounted(() => {
   let isDragging = false;
   let prevPointerX = null;
   let prevPointerY = null;
+  let area1;
+  let graphics;
 
   const onPointermove = (pointer) => {
     if (!isDragging) {
@@ -51,6 +48,7 @@ onMounted(() => {
           board.x = boardMinRightPosition;
         } else {
           board.x = newPositionX;
+          graphics.x += deltaX;
         }
       }
 
@@ -63,8 +61,12 @@ onMounted(() => {
           board.y = boardMinBottomPosition;
         } else {
           board.y = newPositionY;
+          graphics.y += deltaY;
         }
       }
+
+      // graphics.x += deltaX;
+      // graphics.y += deltaY;
     }
 
     // Обновляем предыдущие координаты указателя мыши
@@ -137,6 +139,35 @@ onMounted(() => {
         } else {
           board.y = newPositionY;
         }
+      }
+    });
+
+    area1 = new Phaser.Geom.Rectangle(100, 100, 200, 150);
+
+    // Создаем графику для визуализации области (если нужно для отладки)
+    graphics = this.add.graphics();
+    graphics.lineStyle(2, 0xFF0000);
+    graphics.strokeRectShape(area1);
+
+    // Применяем hit-area на изображение
+    board.setInteractive(new Phaser.Geom.Rectangle(0, 0, board.width, board.height), Phaser.Geom.Rectangle.Contains);
+
+    // Обрабатываем клики
+    board.on('pointerdown', (pointer) => {
+      // console.log('pointer.x', pointer.x);
+      // console.log('pointer.y', pointer.y);
+
+      // const localX = pointer.x - board.x + board.displayWidth / 2;
+      // const localY = pointer.y - board.y + board.displayHeight / 2;
+      //
+      // console.log('localX', localX);
+      // console.log('localY', localY);
+
+      // Проверка попадания в область
+      // if (area1.contains(localX, localY)) {
+      if (area1.contains(pointer.x, pointer.y)) {
+        console.log('Area 1 clicked');
+        // Добавляем логику для клика на Area 1
       }
     });
   }
